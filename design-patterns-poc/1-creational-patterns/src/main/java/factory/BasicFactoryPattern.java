@@ -36,7 +36,7 @@ class ShapeFactory {
             return new Circle();
         } else if (shape.equalsIgnoreCase("RECTANGLE")){
             return new Rectangle();
-        } else if (shape.equalsIgnoreCase("SQUERE")) {
+        } else if (shape.equalsIgnoreCase("SQUARE")) {
             return new Square();
         }
         return null;
