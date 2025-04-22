@@ -1,3 +1,10 @@
+/**
+ * Benefits:
+ * Simplifies account creation process
+ * Allows for different account types with varying parameters
+ * Makes it easy to introduce new account types in the future
+ */
+
 package factory;
 
 import org.slf4j.Logger;
@@ -9,6 +16,11 @@ interface Account {
     void withdraw(double amount);
     double getBalance();
     String getAccountType();
+}
+
+// Account Factory
+interface AccountFactory {
+    Account createAccount();
 }
 
 // Concrete account implementations
@@ -82,11 +94,6 @@ class CurrentAccount implements Account {
     public String getAccountType() {
         return "Current Account";
     }
-}
-
-// Account Factory
-interface AccountFactory {
-    Account createAccount();
 }
 
 // Concrete factories

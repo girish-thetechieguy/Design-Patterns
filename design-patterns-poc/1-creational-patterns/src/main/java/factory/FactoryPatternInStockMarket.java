@@ -1,3 +1,12 @@
+/**
+ * Benefits:
+ * Easy to add new financial instruments (like Options, Futures) without modifying existing code
+ *
+ * Centralized control over instrument creation
+ *
+ * Hides complex initialization logic
+ */
+
 package factory;
 
 import org.slf4j.Logger;
