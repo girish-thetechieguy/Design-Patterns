@@ -236,11 +236,12 @@ public class MultiThreadWithSingleton {
         logger.info("Both are equal: {}" + scopedSingletonNew.equals(scopedSingleton));
 
         // 10. Java 24 Pattern Matching Enhancement
-        ModernSingleton modernSingleton = ModernSingleton.getInstance();
-        ModernSingleton modernSingletonNew = ModernSingleton.getInstance();
-        modernSingleton.hashCode();
-        modernSingletonNew.hashCode();
-        logger.info("Both are equal: {}" + modernSingleton.equals(modernSingletonNew));
+        // Commented bcoz java 24 has not build appropritely for this
+//        ModernSingleton modernSingleton = ModernSingleton.getInstance();
+//        ModernSingleton modernSingletonNew = ModernSingleton.getInstance();
+//        modernSingleton.hashCode();
+//        modernSingletonNew.hashCode();
+//        logger.info("Both are equal: {}" + modernSingleton.equals(modernSingletonNew));
 
     }
 
