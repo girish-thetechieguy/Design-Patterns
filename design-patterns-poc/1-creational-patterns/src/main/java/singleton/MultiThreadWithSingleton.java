@@ -132,18 +132,18 @@ class VirtualThreadSingleton {
     }
 }
 
-class ScopedSingleton {
-    private static final ScopedValue<ScopedSingleton> INSTANCE = ScopedValue.newInstance();
-
-    private ScopedSingleton() {}
-
-    public static ScopedSingleton getInstance() {
-        if (!INSTANCE.isBound()) {
-            ScopedValue.where(INSTANCE, new ScopedSingleton()).run(() -> {});
-        }
-        return INSTANCE.get();
-    }
-}
+//class ScopedSingleton {
+//    private static final ScopedValue<ScopedSingleton> INSTANCE = ScopedValue.newInstance();
+//
+//    private ScopedSingleton() {}
+//
+//    public static ScopedSingleton getInstance() {
+//        if (!INSTANCE.isBound()) {
+//            ScopedValue.where(INSTANCE, new ScopedSingleton()).run(() -> {});
+//        }
+//        return INSTANCE.get();
+//    }
+//}
 
 final class ModernSingleton {
     private static ModernSingleton instance;
@@ -229,11 +229,11 @@ public class MultiThreadWithSingleton {
         // Cons: Requires Java 21+
 
         // 9. Scoped Value Singleton (Java 21+ preview, stabilized in Java 23)
-        ScopedSingleton scopedSingleton = ScopedSingleton.getInstance();
-        ScopedSingleton scopedSingletonNew = ScopedSingleton.getInstance();
-        scopedSingleton.hashCode();
-        scopedSingletonNew.hashCode();
-        logger.info("Both are equal: {}" + scopedSingletonNew.equals(scopedSingleton));
+//        ScopedSingleton scopedSingleton = ScopedSingleton.getInstance();
+//        ScopedSingleton scopedSingletonNew = ScopedSingleton.getInstance();
+//        scopedSingleton.hashCode();
+//        scopedSingletonNew.hashCode();
+//        logger.info("Both are equal: {}" + scopedSingletonNew.equals(scopedSingleton));
 
         // 10. Java 24 Pattern Matching Enhancement
         // Commented bcoz java 24 has not build appropritely for this
