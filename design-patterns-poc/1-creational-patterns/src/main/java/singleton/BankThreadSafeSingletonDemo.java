@@ -39,6 +39,10 @@ class BankTransactionManager {
 
     // Thread-safe deposit method
     public void deposit(String accountNumber, double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Deposit amount must be positive");
+        }
+
         lock.lock();
         try {
             // Simulate database operation

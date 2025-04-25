@@ -206,31 +206,44 @@ class BankTransactionManagerTest {
                 "Transaction count should match total operations");
     }
 
+//    @Test
+//    @DisplayName("Negative deposit should be rejected")
+//    void negativeDeposit_shouldBeRejected() {
+//        BankTransactionManager bank = BankTransactionManager.getInstance();
+//        double initialBalance = bank.getTotalBankBalance();
+//
+//        assertThrows(IllegalArgumentException.class, () -> {
+//            bank.deposit("ACC001", -100.00);
+//        }, "Should throw IllegalArgumentException for negative deposit");
+//
+//        assertEquals(initialBalance, bank.getTotalBankBalance(), 0.001,
+//                "Balance should remain unchanged");
+//    }
+
     @Test
-    @DisplayName("Negative deposit should be rejected")
-    void negativeDeposit_shouldBeRejected() {
+    @DisplayName("Invalid deposit amounts should be rejected")
+    void invalidDepositAmounts_shouldBeRejected() {
         BankTransactionManager bank = BankTransactionManager.getInstance();
         double initialBalance = bank.getTotalBankBalance();
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            bank.deposit("ACC001", -100.00);
-        }, "Should throw IllegalArgumentException for negative deposit");
+        // Test negative amount
+        IllegalArgumentException negativeException = assertThrows(
+                IllegalArgumentException.class,
+                () -> bank.deposit("ACC001", -100.00),
+                "Negative deposit should throw IllegalArgumentException"
+        );
+        assertEquals("Deposit amount must be positive", negativeException.getMessage());
 
+        // Test zero amount
+        IllegalArgumentException zeroException = assertThrows(
+                IllegalArgumentException.class,
+                () -> bank.deposit("ACC001", 0.00),
+                "Zero deposit should throw IllegalArgumentException"
+        );
+        assertEquals("Deposit amount must be positive", zeroException.getMessage());
+
+        // Verify balance unchanged
         assertEquals(initialBalance, bank.getTotalBankBalance(), 0.001,
-                "Balance should remain unchanged");
-    }
-
-    @Test
-    @DisplayName("Zero amount transactions should be rejected")
-    void zeroAmountTransactions_shouldBeRejected() {
-        BankTransactionManager bank = BankTransactionManager.getInstance();
-        double initialBalance = bank.getTotalBankBalance();
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            bank.deposit("ACC001", 0.00);
-        }, "Should throw IllegalArgumentException for zero amount");
-
-        assertEquals(initialBalance, bank.getTotalBankBalance(), 0.001,
-                "Balance should remain unchanged");
+                "Balance should remain unchanged after invalid deposits");
     }
 }
