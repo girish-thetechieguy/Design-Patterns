@@ -1,6 +1,8 @@
 package flyweight;
 
 
+import java.util.HashMap;
+
 interface Shape {
     void draw();
 }
