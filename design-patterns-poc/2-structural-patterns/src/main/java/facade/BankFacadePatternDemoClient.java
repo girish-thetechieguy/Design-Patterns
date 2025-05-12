@@ -11,7 +11,32 @@ package facade;
  * BalanceChecker – Verifies sufficient funds
  * TransactionProcessor – Moves money
  * NotificationService – Sends alerts
+ *
+ * Key Benefits
+ * Advantage	Banking Example
+ * Simplifies Clients	Customers call transferMoney(), not 4 subsystems.
+ * Decouples Logic	Changes to TransactionProcessor don’t affect clients.
+ * Centralized Control	Facade can add fraud checks before processing.
+ * Error Handling	Failed validations trigger appropriate notifications.
+ * Real-World Analogies
+ * ATM Machine – A facade for:
+ * Card validation
+ * Balance checks
+ * Cash dispensing
+ * Receipt printing
+ *
+ * Online Banking Portal – Hides:
+ * Database operations
+ * Transaction logging
+ * Security protocols
+ *
+ * When to Use?
+ * ✅ You need to hide complex workflows (e.g., loan approvals)
+ * ✅ Subsystems are prone to change (e.g., new fraud detection)
+ * ✅ Clients should not depend on internal details.
  */
+
+
 
 // Complex subsystem classes
 class AccountValidator {
