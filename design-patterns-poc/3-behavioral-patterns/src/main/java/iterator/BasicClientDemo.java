@@ -1,13 +1,13 @@
 package iterator;
 
 interface Iterator {
-  public boolean hasNext();
+  boolean hasNext();
 
-  public Object next();
+  Object next();
 }
 
 interface Container {
-  public Iterator getIterator();
+  Iterator getIterator();
 }
 
 class NameRepository implements Container {
@@ -41,7 +41,6 @@ class NameRepository implements Container {
     }
   }
 }
-
 
 public class BasicClientDemo {
   public static void main(String[] args) {
