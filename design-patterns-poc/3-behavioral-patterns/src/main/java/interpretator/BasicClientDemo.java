@@ -14,18 +14,15 @@ class TerminalExpression implements Expression {
 
   @Override
   public boolean interpret(String context) {
-
-    if (context.contains(data))
-      return true;
-    return false;
+      return context.contains(data);
   }
 }
 
 
 class OrExpression implements Expression {
 
-  private Expression expr1;
-  private Expression expr2;
+  private final Expression expr1;
+  private final Expression expr2;
 
   public OrExpression(Expression expr1, Expression expr2) {
     this.expr1 = expr1;
@@ -40,8 +37,8 @@ class OrExpression implements Expression {
 
 class AndExpression implements Expression {
 
-  private Expression expr1;
-  private Expression expr2;
+  private final Expression expr1;
+  private final Expression expr2;
 
   public AndExpression(Expression expr1, Expression expr2) {
     this.expr1 = expr1;
@@ -77,4 +74,3 @@ public class BasicClientDemo {
     System.out.println("Julie is a married women? " + isMarriedWoman.interpret("Married Julie"));
   }
 }
-
