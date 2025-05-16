@@ -42,7 +42,6 @@ class NameRepository implements Container {
   }
 }
 
-
 public class BasicClientDemo {
   public static void main(String[] args) {
     NameRepository namesRepository = new NameRepository();
