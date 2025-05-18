@@ -6,6 +6,7 @@ import java.util.NoSuchElementException;
 
 interface StockIterator {
   boolean hasNext();
+
   Stock next();
 }
 
@@ -17,6 +18,7 @@ class Stock {
     this.symbol = symbol;
     this.price = price;
   }
+
   @Override
   public String toString() {
     return symbol + ": $" + price;
