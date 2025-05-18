@@ -10,18 +10,13 @@ interface StockIterator {
 }
 
 class Stock {
-  private String symbol;
-  private double price;
+  private final String symbol;
+  private final double price;
 
   public Stock(String symbol, double price) {
     this.symbol = symbol;
     this.price = price;
   }
-
-  // Getters
-  public String getSymbol() { return symbol; }
-  public double getPrice() { return price; }
-
   @Override
   public String toString() {
     return symbol + ": $" + price;
@@ -29,7 +24,7 @@ class Stock {
 }
 
 class PortfolioIterator implements StockIterator {
-  private List<Stock> stocks;
+  private final List<Stock> stocks;
   private int position = 0;
 
   public PortfolioIterator(List<Stock> stocks) {
@@ -49,7 +44,7 @@ class PortfolioIterator implements StockIterator {
 }
 
 class WatchlistIterator implements StockIterator {
-  private Stock[] watchlist;
+  private final Stock[] watchlist;
   private int index = 0;
 
   public WatchlistIterator(Stock[] watchlist) {
@@ -73,7 +68,7 @@ interface StockCollection {
 }
 
 class Portfolio implements StockCollection {
-  private List<Stock> stocks = new ArrayList<>();
+  private final List<Stock> stocks = new ArrayList<>();
 
   public void addStock(Stock stock) {
     stocks.add(stock);
@@ -86,7 +81,7 @@ class Portfolio implements StockCollection {
 }
 
 class Watchlist implements StockCollection {
-  private Stock[] stocks = new Stock[10];
+  private final Stock[] stocks = new Stock[10];
   private int count = 0;
 
   public void addStock(Stock stock) {
@@ -100,7 +95,6 @@ class Watchlist implements StockCollection {
     return new WatchlistIterator(stocks);
   }
 }
-
 
 public class StockMarketClientDemo {
   public static void main(String[] args) {
