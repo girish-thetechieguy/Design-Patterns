@@ -1,17 +1,17 @@
 package visitor;
 
 interface ComputerPart {
-	public void accept(ComputerPartVisitor computerPartVisitor);
+	void accept(ComputerPartVisitor computerPartVisitor);
 }
 
 interface ComputerPartVisitor {
-	public void visit(Computer computer);
+	void visit(Computer computer);
 
-	public void visit(Mouse mouse);
+	void visit(Mouse mouse);
 
-	public void visit(Keyboard keyboard);
+	void visit(Keyboard keyboard);
 
-	public void visit(Monitor monitor);
+	void visit(Monitor monitor);
 }
 
 class Keyboard implements ComputerPart {
@@ -51,8 +51,8 @@ class Computer implements ComputerPart {
 
 	@Override
 	public void accept(ComputerPartVisitor computerPartVisitor) {
-		for (int i = 0; i < parts.length; i++) {
-			parts[i].accept(computerPartVisitor);
+		for (ComputerPart part : parts) {
+			part.accept(computerPartVisitor);
 		}
 		computerPartVisitor.visit(this);
 	}

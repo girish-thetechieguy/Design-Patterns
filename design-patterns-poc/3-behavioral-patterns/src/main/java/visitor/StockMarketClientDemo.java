@@ -6,6 +6,7 @@ interface FinancialInstrument {
 
 interface FinancialInstrumentVisitor {
 	void visit(Stock stock);
+
 	void visit(Bond bond);
 }
 

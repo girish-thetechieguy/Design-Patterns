@@ -30,6 +30,7 @@ record CheckingAccount(String accountNumber, double balance, double overdraftLim
 
 interface AccountVisitor {
 	void visit(SavingsAccount savingsAccount);
+
 	void visit(CheckingAccount checkingAccount);
 }
 
