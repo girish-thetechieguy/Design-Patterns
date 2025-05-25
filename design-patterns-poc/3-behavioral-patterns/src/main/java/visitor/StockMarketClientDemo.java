@@ -14,7 +14,6 @@ interface FinancialInstrumentVisitor {
  */
 record Stock(String ticker, double price, double dividendYield) implements FinancialInstrument {
 
-
 	@Override
 	public void accept(FinancialInstrumentVisitor visitor) {
 		visitor.visit(this); // Let the visitor analyze this stock
