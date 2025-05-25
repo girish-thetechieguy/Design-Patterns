@@ -12,6 +12,7 @@
         <module>1-creational-patterns</module>
         <module>2-structural-patterns</module>
         <module>3-behavioral-patterns</module>
+        <module>4-additional-patterns</module>
     </modules>
 
     <properties>
