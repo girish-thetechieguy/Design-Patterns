@@ -3,6 +3,11 @@ package factory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * In Factory pattern, we create object without exposing the creation logic to the client and refer to newly created object using a common interface.
+ */
+
+
 interface Shape{
     void draw();
 }

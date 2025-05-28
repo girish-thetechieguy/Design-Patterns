@@ -2,6 +2,9 @@ package prototype;
 
 import java.util.Hashtable;
 
+/**
+ * Prototype pattern refers to creating duplicate object while keeping performance in mind.
+ */
 abstract class Shape implements Cloneable {
 
     private String id;

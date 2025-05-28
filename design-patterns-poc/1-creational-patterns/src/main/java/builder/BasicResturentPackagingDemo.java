@@ -6,6 +6,10 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Builder pattern builds a complex object using simple objects and using a step by step approach.
+ *
+ */
 interface Item {
     public String name();
     public Packing packing();

@@ -1,5 +1,10 @@
 package AbstractFactory;
 
+/**
+ * Abstract Factory patterns work around a super-factory which creates other factories. This factory is also called as factory of factories.
+ * this pattern provides one of the best ways to create an object
+ */
+
 interface Shape {
     void draw();
 }

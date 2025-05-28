@@ -4,6 +4,12 @@ import factory.FactroryPatternInBank;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * This pattern involves a single class which is responsible to create an object while
+ * making sure that only single object gets created. This class provides a way to access
+ * its only object which can be accessed directly
+ * without need to instantiate the object of the class.
+ */
 class SingleObject {
     private static Logger logger = LoggerFactory.getLogger(FactroryPatternInBank.class);
     //create an object of SingleObject
